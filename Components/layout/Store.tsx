@@ -11,9 +11,15 @@ function Store({}: Props) {
         Welcome to the store!
       </Typography>
 
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
         {productsArray.map((product, index) => (
-          <ProductCard product={product} />
+          <ProductCard key={index} product={product} />
         ))}
       </Box>
     </Box>

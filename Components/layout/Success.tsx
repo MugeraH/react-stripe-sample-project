@@ -6,7 +6,7 @@ type Props = {};
 function Success({}: Props) {
   return (
     <Box mt={3}>
-      <Typography variant="h4">Welcome to the store!</Typography>
+      <Typography variant="h4">Thank you for choosing our store</Typography>
     </Box>
   );
 }

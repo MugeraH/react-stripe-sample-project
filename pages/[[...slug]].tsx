@@ -19,10 +19,11 @@ import Store from "../Components/layout/Store";
 import Cancel from "../Components/layout/Cancel";
 import Success from "../Components/layout/Success";
 import Navbar from "../Components/layoutComponents/Navbar";
+import BasicModal from "../Components/layoutComponents/Modal";
 
 const Home: NextPage = () => {
   const router = useRouter();
-
+  const [openCart, setOpenCart] = React.useState(false);
   const [cartCount, setCartCount] = React.useState<number>(0);
 
   let { slug } = router.query;
@@ -39,9 +40,17 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar cartCount={cartCount} />
+      <Navbar cartCount={cartCount}  setOpenPopUp={setOpenCart} />
 
-      <Container>
+      <BasicModal
+        title="Shopping cart"
+        openPopup={openCart}
+        setOpenPopUp={() => setOpenCart(!openCart)}
+      >
+        <Typography>This is the moday body</Typography>
+      </BasicModal>
+
+      <Container sx={{ background: "#f1f1f1" }}>
         {page == "store" ? (
           <Store />
         ) : (page == "cancel") === true ? (
